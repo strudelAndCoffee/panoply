@@ -1,1 +1,1 @@
-# panoply
+# Panoply
