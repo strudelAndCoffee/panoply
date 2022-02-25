@@ -28,3 +28,7 @@ WHEN I select the intern option
 WHEN I decide to finish building my team
     THEN I exit the application, and the HTML is generated
 ```
+
+## License
+
+ISC
