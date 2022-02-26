@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const generateProfiles = require("./lib/generateProfiles");
-const generateHtml = require("./lib/generateHtml");
+const generateHtml = require("./src/generateHtml");
 
 // questions for manager profile
 const promptManagerData = () => {
@@ -261,7 +261,23 @@ const addTeamMembers = data => {
     })
 };
 
+// initiates program
 promptManagerData()
 .then(addTeamMembers)
 .then(generateProfiles)
-.then(generateHtml);
+.then(profileObjs => {
+    return generateHtml(profileObjs);
+})
+.then(pageHTML => {
+    return writeFile(pageHTML);
+})
+.then(response => {
+    console.log(response);
+    return copyFile();
+})
+.then(response => {
+    console.log(response);
+})
+.catch(err => {
+    console.error(err);
+});

@@ -1,6 +1,4 @@
-const fs = require("fs");
-
-function generateHtml(profilesArr) {
+const generateHtml = profilesArr => {
     console.log(profilesArr);
 };
 
