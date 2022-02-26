@@ -11,76 +11,33 @@
 </head>
 
 <body>
-<div class="container">
 <header class="section has-background-success">
 <h1 class="title is-1 has-text-light has-text-centered">My Team</h1>
 </header>
-<main class="section is-flex is-flex-wrap-wrap is-justify-content-center columns">
 
-<div class="box column has-background-light is-3 mx-3 is-flex-grow-0 is-flex-shrink-0">
-    <div class="pb-4">
-        <h2 class="title is-2">Bob Bobby</h2>
-        <h3 class="title is-3">Manager</h3>
-    </div>
-    <div class="box">
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">ID</span>
-            <span>1</span>
-        </p>
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">Email</span>
-            <a href='bob@email.com' target='_blank'>bob@email.com</a>
-        </p>
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium">Office Number</span>
-            <a href='https://github.com/111' target='_blank'>111</a>
-        </p>
-    </div>
-</div>
+<main class="section columns is-flex is-flex-wrap-wrap is-justify-content-center">
 
-<div class="box column has-background-light is-3 mx-3 is-flex-grow-0 is-flex-shrink-0">
-    <div class="pb-4">
-        <h2 class="title is-2">Clara Clark</h2>
-        <h3 class="title is-3">Engineer</h3>
+    <div class="box column is-narrow mx-2 has-background-light">
+        <div class="pb-5">
+            <h2 class="title is-2">${name}</h2>
+            <h3 class="title is-3">${role}</h3>
+        </div>
+        <div class="box columns">
+            <div class="column is-narrow is-flex is-flex-direction-column is-align-items-flex-end">
+                <span class="tag is-info has-text-weight-semibold">ID</span>
+                <br />
+                <span class="tag is-info has-text-weight-semibold">Email</span>
+                <br />
+                <span class="tag is-info has-text-weight-semibold">${otherTag}</span>
+            </div>
+            <div class="column is-flex is-flex-direction-column is-align-items-flex-start is-justify-content-space-between">
+                <p class="mb-4">${id}</p>
+                <p class="mb-4"><a href='mailto:${email}'>${email}</a></p>
+                <p>${other}</p>
+            </div>
+        </div>
     </div>
-    <div class="box">
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">ID</span>
-            <span>2</span>
-        </p>
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">Email</span>
-            <a href='clara@email.com' target='_blank'>clara@email.com</a>
-        </p>
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium">GitHub</span>
-            <a href='https://github.com/cclark' target='_blank'>cclark</a>
-        </p>
-    </div>
-</div>
-
-<div class="box column has-background-light is-3 mx-3 is-flex-grow-0 is-flex-shrink-0">
-    <div class="pb-4">
-        <h2 class="title is-2">Doug Douglas</h2>
-        <h3 class="title is-3">Intern</h3>
-    </div>
-    <div class="box">
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">ID</span>
-            <span>3</span>
-        </p>
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">Email</span>
-            <a href='doug@email.com' target='_blank'>doug@email.com</a>
-        </p>
-        <p class="is-outlined has-text-centered">
-            <span class="tag is-info has-text-weight-semibold is-medium">School</span>
-            <a href='https://github.com/UT' target='_blank'>UT</a>
-        </p>
-    </div>
-</div>
 
 </main>
-</div>
 </body>
 </html>

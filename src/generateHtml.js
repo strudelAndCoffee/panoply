@@ -1,3 +1,4 @@
+// generates each profile's card
 const addSection = obj => {
 
     let role = obj.getRole();
@@ -13,7 +14,7 @@ const addSection = obj => {
     }
     else if (role == "Engineer") {
         otherTag = "GitHub";
-        other = obj.github;
+        other = `<a href='https://github.com/${obj.github}' target='_blank'>${obj.github}</a>`;
     }
     else if (role == "Intern") {
         otherTag = "School";
@@ -21,29 +22,28 @@ const addSection = obj => {
     }
 
 return `
-<div class="box column has-background-light is-3 mx-3 is-flex-grow-0 is-flex-shrink-0">
+<div class="box column is-one-third has-background-light">
     <div class="pb-4">
         <h2 class="title is-2">${name}</h2>
         <h3 class="title is-3">${role}</h3>
     </div>
-    <div class="box">
-        <p class="is-outlined has-text-centered">
+    <div class="box columns">
+        <div class="column has-text-right">
             <span class="tag is-info has-text-weight-semibold is-medium mb-4">ID</span>
-            <span>${id}</span>
-        </p>
-        <p class="is-outlined has-text-centered">
             <span class="tag is-info has-text-weight-semibold is-medium mb-4">Email</span>
-            <a href='${email}' target='_blank'>${email}</a>
-        </p>
-        <p class="is-outlined has-text-centered">
             <span class="tag is-info has-text-weight-semibold is-medium">${otherTag}</span>
-            <a href='https://github.com/${other}' target='_blank'>${other}</a>
-        </p>
+        </div>
+        <div class="coulmn has-text-left">
+            <span class="mb-4">${id}</span>
+            <span class="mb-4"><a href='mailto:${email}'>${email}</a></span>
+            <span>${other}</span>
+        </div>
     </div>
 </div>
 `
 };
 
+// adds profile cards to main page
 const pageLayout = profilesArr => {
     
     let cardsHtml = "";
@@ -65,14 +65,13 @@ return `
 </head>
 
 <body>
-<div class="container">
 <header class="section has-background-success">
 <h1 class="title is-1 has-text-light has-text-centered">My Team</h1>
 </header>
-<main class="section is-flex is-flex-wrap-wrap is-justify-content-center columns">
+
+<main class="section columns is-flex is-flex-wrap-wrap is-justify-content-center">
 ${cardsHtml}
 </main>
-</div>
 </body>
 </html>
 `

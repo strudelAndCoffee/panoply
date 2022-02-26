@@ -274,11 +274,14 @@ promptManagerData()
     return writeFile(pageHTML);
 })
 .then(response => {
-    console.log(response);
+    console.log("---------------");
+    console.log(response.message);
     return copyFile();
 })
 .then(response => {
-    console.log(response);
+    console.log(response.message);
+    console.log("---------------");
+    console.log("Action complete! Check 'dist' folder.");
 })
 .catch(err => {
     console.error(err);

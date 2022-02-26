@@ -9,7 +9,7 @@ const copyFile = () => {
             }
             resolve({
                 ok: true,
-                message: "style.css file copied. Action complete! Check 'dist' folder."
+                message: "style.css file copied..."
             });
         })
     })
