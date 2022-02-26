@@ -81,7 +81,7 @@ const addTeamMembers = data => {
     return inquirer.prompt([
         {
             type: "list",
-            name: "teamMember",
+            name: "role",
             message: "Which type of team member would you like to add?",
             choices: ["Engineer", "Intern"]
         },
@@ -97,8 +97,8 @@ const addTeamMembers = data => {
                     return false;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Engineer") {
+            when: ({ role }) => {
+                if (role == "Engineer") {
                     return true;
                 } else {
                     return false;
@@ -117,8 +117,8 @@ const addTeamMembers = data => {
                     return false;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Intern") {
+            when: ({ role }) => {
+                if (role == "Intern") {
                     return true;
                 } else {
                     return false;
@@ -137,8 +137,8 @@ const addTeamMembers = data => {
                     return true;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Engineer") {
+            when: ({ role }) => {
+                if (role == "Engineer") {
                     return true;
                 } else {
                     return false;
@@ -157,8 +157,8 @@ const addTeamMembers = data => {
                     return true;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Intern") {
+            when: ({ role }) => {
+                if (role == "Intern") {
                     return true;
                 } else {
                     return false;
@@ -177,8 +177,8 @@ const addTeamMembers = data => {
                     return false;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Engineer") {
+            when: ({ role }) => {
+                if (role == "Engineer") {
                     return true;
                 } else {
                     return false;
@@ -197,8 +197,8 @@ const addTeamMembers = data => {
                     return false;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Intern") {
+            when: ({ role }) => {
+                if (role == "Intern") {
                     return true;
                 } else {
                     return false;
@@ -217,8 +217,8 @@ const addTeamMembers = data => {
                     return false;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Engineer") {
+            when: ({ role }) => {
+                if (role == "Engineer") {
                     return true;
                 } else {
                     return false;
@@ -237,8 +237,8 @@ const addTeamMembers = data => {
                     return false;
                 }
             },
-            when: ({ teamMember }) => {
-                if (teamMember == "Intern") {
+            when: ({ role }) => {
+                if (role == "Intern") {
                     return true;
                 } else {
                     return false;
