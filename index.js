@@ -3,7 +3,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
-const promptManager = () => {
+const promptManagerData = () => {
     return inquirer.prompt([
         {
             type: "input",
@@ -21,7 +21,7 @@ const promptManager = () => {
         {
             type: "input",
             name: "mgrId",
-            message: "What is your team manager's ID number?",
+            message: "What is your team manager's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
                     console.log("Please enter a number");
@@ -56,39 +56,38 @@ const promptManager = () => {
                     return true;
                 }
             }
+        },
+        {
+            type: "confirm",
+            name: "confirmAddTeam",
+            message: "Would you like to add team members?",
+            default: true
         }
     ])
 };
 
-const addTeamMembers = info => {
-    if (!info.teamMembers) {
-        info.teamMembers = [];
+const addTeamMembers = data => {
+
+    if (!data.confirmAddTeam) {
+        return data;
+    }
+
+    let teamMembers = data;
+    if (!teamMembers.team) {
+        teamMembers.team = [];
     };
 
     return inquirer.prompt([
         {
-            type: "confirm",
-            name: "addTeamMember",
-            message: "Would you like to include additional team members?",
-            default: true
-        },
-        {
             type: "list",
             name: "teamMember",
             message: "Which type of team member would you like to add?",
-            choices: ["Engineer", "Intern"],
-            when: ({ addTeamMember }) => {
-                if (addTeamMember) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+            choices: ["Engineer", "Intern", "I don't want to add any more team members"]
         },
         {
             type: "input",
             name: "engName",
-            message: "What is the engineer's name?",
+            message: "What is your engineer's name?",
             validate: input => {
                 if (input) {
                     return true;
@@ -108,7 +107,7 @@ const addTeamMembers = info => {
         {
             type: "input",
             name: "intName",
-            message: "What is the intern's name?",
+            message: "What is your intern's name?",
             validate: input => {
                 if (input) {
                     return true;
@@ -128,7 +127,7 @@ const addTeamMembers = info => {
         {
             type: "input",
             name: "engId",
-            message: "What is the engineer's ID number?",
+            message: "What is your engineer's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
                     console.log("Please enter a number");
@@ -148,7 +147,7 @@ const addTeamMembers = info => {
         {
             type: "input",
             name: "intId",
-            message: "What is the intern's ID number?",
+            message: "What is your intern's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
                     console.log("Please enter a number");
@@ -168,7 +167,7 @@ const addTeamMembers = info => {
         {
             type: "input",
             name: "engEmail",
-            message: "What is the engineer's eamil?",
+            message: "What is your engineer's eamil?",
             validate: input => {
                 if (input.includes("@") && input.includes(".")) {
                     return true;
@@ -188,7 +187,7 @@ const addTeamMembers = info => {
         {
             type: "input",
             name: "intEmail",
-            message: "What is the intern's eamil?",
+            message: "What is your intern's eamil?",
             validate: input => {
                 if (input.includes("@") && input.includes(".")) {
                     return true;
@@ -204,8 +203,61 @@ const addTeamMembers = info => {
                     return false;
                 }
             }
+        },
+        {
+            type: "input",
+            name: "engGithub",
+            message: "What is your engineer's GitHub username?",
+            validate: input => {
+                if (input) {
+                    return true;
+                } else {
+                    console.log("Please enter a GitHub username");
+                    return false;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Engineer") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "intSchool",
+            message: "What is your intern's school?",
+            validate: input => {
+                if (input) {
+                    return true;
+                } else {
+                    console.log("Please enter a school name");
+                    return false;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Intern") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "confirm",
+            name: "confirmAdd",
+            message: "Would you like to add additional team members?",
+            default: true
+        },
+    ]).then(tmData => {
+        teamMembers.team.push(tmData);
+        if (tmData.confirmAdd) {
+            return addTeamMembers(teamMembers);
+        } else {
+            return teamMembers;
         }
-    ]);
+    })
 };
 
 // const generateProfiles = data => {
@@ -219,5 +271,8 @@ const addTeamMembers = info => {
 //     console.log(profiles);
 // };
 
-promptManager()
-.then(addTeamMembers);
+promptManagerData()
+.then(addTeamMembers)
+.then(response => {
+    console.log(response);
+});
