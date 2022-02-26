@@ -82,7 +82,7 @@ const addTeamMembers = data => {
             type: "list",
             name: "teamMember",
             message: "Which type of team member would you like to add?",
-            choices: ["Engineer", "Intern", "I don't want to add any more team members"]
+            choices: ["Engineer", "Intern"]
         },
         {
             type: "input",
