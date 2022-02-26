@@ -1,6 +1,6 @@
 const Intern = require("../lib/Intern");
 
-test("checks if Intern creates an object", () => {
+test("checks if object of class Intern is created", () => {
     const intern = new Intern("Carlos", 4, "@email.com", "school");
 
     expect(intern.name).toEqual("Carlos");

@@ -1,6 +1,6 @@
 const Engineer = require("../lib/Engineer");
 
-test("checks if Engineer creates an object", () => {
+test("checks if object of class Engineer is created", () => {
     const engineer = new Engineer("Bruno", 3, "@email.com", "github");
 
     expect(engineer.name).toEqual("Bruno");

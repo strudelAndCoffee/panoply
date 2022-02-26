@@ -1,6 +1,6 @@
 const Employee = require("../lib/Employee");
 
-test("checks if new Employee creates an object", () => {
+test("checks if object of class Employee is created", () => {
     const emp = new Employee("Ann", 1, "@email.com");
 
     expect(emp.name).toEqual(expect.any(String));

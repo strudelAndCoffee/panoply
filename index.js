@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+const generateProfiles = require("./lib/generateProfiles");
+const generateHtml = require("./lib/generateHtml");
 
+// questions for manager profile
 const promptManagerData = () => {
     return inquirer.prompt([
         {
@@ -66,6 +66,7 @@ const promptManagerData = () => {
     ])
 };
 
+// questions for team member profiles
 const addTeamMembers = data => {
 
     if (!data.confirmAddTeam) {
@@ -86,7 +87,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "engName",
+            name: "name",
             message: "What is your engineer's name?",
             validate: input => {
                 if (input) {
@@ -106,7 +107,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "intName",
+            name: "name",
             message: "What is your intern's name?",
             validate: input => {
                 if (input) {
@@ -126,7 +127,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "engId",
+            name: "id",
             message: "What is your engineer's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
@@ -146,7 +147,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "intId",
+            name: "id",
             message: "What is your intern's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
@@ -166,7 +167,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "engEmail",
+            name: "email",
             message: "What is your engineer's eamil?",
             validate: input => {
                 if (input.includes("@") && input.includes(".")) {
@@ -186,7 +187,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "intEmail",
+            name: "email",
             message: "What is your intern's eamil?",
             validate: input => {
                 if (input.includes("@") && input.includes(".")) {
@@ -206,7 +207,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "engGithub",
+            name: "github",
             message: "What is your engineer's GitHub username?",
             validate: input => {
                 if (input) {
@@ -226,7 +227,7 @@ const addTeamMembers = data => {
         },
         {
             type: "input",
-            name: "intSchool",
+            name: "school",
             message: "What is your intern's school?",
             validate: input => {
                 if (input) {
@@ -260,19 +261,7 @@ const addTeamMembers = data => {
     })
 };
 
-// const generateProfiles = data => {
-//     const { } = data;
-//     const manager = new Manager(name, id, email, officeNumber);
-
-//     generateHtml(manager);
-// };
-
-// const generateHtml = profiles => {
-//     console.log(profiles);
-// };
-
 promptManagerData()
 .then(addTeamMembers)
-.then(response => {
-    console.log(response);
-});
+.then(generateProfiles)
+.then(generateHtml);
