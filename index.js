@@ -3,23 +3,12 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
-function generateProfiles(data) {
-    const { name, id, email, officeNumber } = data;
-    const manager = new Manager(name, id, email, officeNumber);
-
-    generateHtml(manager);
-};
-
-function generateHtml(profiles) {
-    console.log(profiles);
-};
-
-function managerInit() {
+const promptManager = () => {
     return inquirer.prompt([
         {
             type: "input",
-            name: "name",
-            message: "What is the manager's name?",
+            name: "mgrName",
+            message: "What is your team manager's name?",
             validate: input => {
                 if (input) {
                     return true;
@@ -31,8 +20,8 @@ function managerInit() {
         },
         {
             type: "input",
-            name: "id",
-            message: "What is their employee id?",
+            name: "mgrId",
+            message: "What is your team manager's ID number?",
             validate: input => {
                 if (isNaN(input) || !input) {
                     console.log("Please enter a number");
@@ -44,8 +33,8 @@ function managerInit() {
         },
         {
             type: "input",
-            name: "email",
-            message: "What is their email?",
+            name: "mgrEmail",
+            message: "What is your team manager's email?",
             validate: input => {
                 if (input.includes("@") && input.includes(".")) {
                     return true;
@@ -57,8 +46,8 @@ function managerInit() {
         },
         {
             type: "input",
-            name: "officeNumber",
-            message: "What is their office number?",
+            name: "mgrOfficeNo",
+            message: "What is your team manager's office number?",
             validate: input => {
                 if (isNaN(input) || !input) {
                     console.log("Please enter a number");
@@ -68,8 +57,167 @@ function managerInit() {
                 }
             }
         }
+    ])
+};
+
+const addTeamMembers = info => {
+    if (!info.teamMembers) {
+        info.teamMembers = [];
+    };
+
+    return inquirer.prompt([
+        {
+            type: "confirm",
+            name: "addTeamMember",
+            message: "Would you like to include additional team members?",
+            default: true
+        },
+        {
+            type: "list",
+            name: "teamMember",
+            message: "Which type of team member would you like to add?",
+            choices: ["Engineer", "Intern"],
+            when: ({ addTeamMember }) => {
+                if (addTeamMember) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "engName",
+            message: "What is the engineer's name?",
+            validate: input => {
+                if (input) {
+                    return true;
+                } else {
+                    console.log("Please enter a name");
+                    return false;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Engineer") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "intName",
+            message: "What is the intern's name?",
+            validate: input => {
+                if (input) {
+                    return true;
+                } else {
+                    console.log("Please enter a name");
+                    return false;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Intern") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "engId",
+            message: "What is the engineer's ID number?",
+            validate: input => {
+                if (isNaN(input) || !input) {
+                    console.log("Please enter a number");
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Engineer") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "intId",
+            message: "What is the intern's ID number?",
+            validate: input => {
+                if (isNaN(input) || !input) {
+                    console.log("Please enter a number");
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Intern") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "engEmail",
+            message: "What is the engineer's eamil?",
+            validate: input => {
+                if (input.includes("@") && input.includes(".")) {
+                    return true;
+                } else {
+                    console.log("Please enter a valid email");
+                    return false;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Engineer") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "intEmail",
+            message: "What is the intern's eamil?",
+            validate: input => {
+                if (input.includes("@") && input.includes(".")) {
+                    return true;
+                } else {
+                    console.log("Please enter a valid email");
+                    return false;
+                }
+            },
+            when: ({ teamMember }) => {
+                if (teamMember == "Intern") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
     ]);
 };
 
-managerInit()
-.then(generateProfiles);
+// const generateProfiles = data => {
+//     const { } = data;
+//     const manager = new Manager(name, id, email, officeNumber);
+
+//     generateHtml(manager);
+// };
+
+// const generateHtml = profiles => {
+//     console.log(profiles);
+// };
+
+promptManager()
+.then(addTeamMembers);
