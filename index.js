@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const generateProfiles = require("./lib/generateProfiles");
 const pageLayout = require("./src/generateHtml"); 
+const writeFile = require("./utils/writeFile");
+const copyFile = require("./utils/copyFile");
 
 // questions for manager profile
 const promptManagerData = () => {
@@ -268,19 +270,16 @@ promptManagerData()
 .then(profileObjs => {
     return pageLayout(profileObjs);
 })
+.then(pageHTML => {
+    return writeFile(pageHTML);
+})
 .then(response => {
     console.log(response);
+    return copyFile();
+})
+.then(response => {
+    console.log(response);
+})
+.catch(err => {
+    console.error(err);
 });
-// .then(pageHTML => {
-//     return writeFile(pageHTML);
-// })
-// .then(response => {
-//     console.log(response);
-//     return copyFile();
-// })
-// .then(response => {
-//     console.log(response);
-// })
-// .catch(err => {
-//     console.error(err);
-// });
