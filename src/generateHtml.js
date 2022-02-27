@@ -22,23 +22,25 @@ const addSection = obj => {
     }
 
 return `
-<div class="box column is-one-third has-background-light">
-    <div class="pb-4">
-        <h2 class="title is-2">${name}</h2>
-        <h3 class="title is-3">${role}</h3>
+<div class="box column is-narrow mx-2 has-background-light">
+<div class="pb-5">
+    <h2 class="title is-2">${name}</h2>
+    <h3 class="title is-3">${role}</h3>
+</div>
+<div class="box columns">
+    <div class="column is-narrow is-flex is-flex-direction-column is-align-items-flex-end">
+        <span class="tag is-info has-text-weight-semibold">ID</span>
+        <br />
+        <span class="tag is-info has-text-weight-semibold">Email</span>
+        <br />
+        <span class="tag is-info has-text-weight-semibold">${otherTag}</span>
     </div>
-    <div class="box columns">
-        <div class="column has-text-right">
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">ID</span>
-            <span class="tag is-info has-text-weight-semibold is-medium mb-4">Email</span>
-            <span class="tag is-info has-text-weight-semibold is-medium">${otherTag}</span>
-        </div>
-        <div class="coulmn has-text-left">
-            <span class="mb-4">${id}</span>
-            <span class="mb-4"><a href='mailto:${email}'>${email}</a></span>
-            <span>${other}</span>
-        </div>
+    <div class="column is-flex is-flex-direction-column is-align-items-flex-start is-justify-content-space-between">
+        <p class="mb-4">${id}</p>
+        <p class="mb-4"><a href='mailto:${email}'>${email}</a></p>
+        <p>${other}</p>
     </div>
+</div>
 </div>
 `
 };
