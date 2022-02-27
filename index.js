@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const generateProfiles = require("./lib/generateProfiles");
-const pageLayout = require("./src/generateHtml"); 
+const pageLayout = require("./utils/generateHtml"); 
 const writeFile = require("./utils/writeFile");
 const copyFile = require("./utils/copyFile");
 
