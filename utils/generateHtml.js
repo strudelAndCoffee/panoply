@@ -73,7 +73,7 @@ return `
 
 <body>
 <header class="section has-background-success">
-    <h1 class="title is-1 has-text-centered has-text-weight-bold">My Team <span class="oi oi-layers has-text-warning"></span></h1>
+    <h1 class="title is-1 has-text-centered has-text-light has-text-weight-bold">My Team <span class="oi oi-layers has-text-warning"></span></h1>
 </header>
 
 <main class="section columns is-flex is-flex-wrap-wrap is-justify-content-center">

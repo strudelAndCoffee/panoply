@@ -22,9 +22,11 @@ Enter this command to install dependencies: `npm i`
 
 ## Tests
 
-Enter this command to run the application: `node index`
+Enter this command to test the application: `npm test`
 
 ## Usage
+
+Enter this command to run the application: `node index`
 
 After cloning the repo and installing dependencies, enter 'node index' in the command line. You will then enter basic info on the team's manager, and will then be prompted to add additional team members, where you may either enter basic info for each employee, or quit the program. Upon quitting the program, an 'index.html' file will appear in the 'dist' folder with the information you provided coded into HTML to display as a webpage, along with the accompanying 'style.css' file.
 
