@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 
-// questions for team member profiles
+// questions for team member profiles, prompts for Engineer or Intern depending on intial prompt
 const addTeamMembers = data => {
 
     if (!data.confirmAddTeam) {

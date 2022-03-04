@@ -2,8 +2,7 @@ const inquirer = require("inquirer");
 const addTeamMembers = require("./utils/addTeamMembers");
 const generateProfiles = require("./lib/generateProfiles");
 const pageLayout = require("./utils/generateHtml"); 
-const writeFile = require("./utils/writeFile");
-const copyFile = require("./utils/copyFile");
+const { writeFile, copyFile } = require("./utils/generateFiles");
 
 // questions for manager profile
 const promptManagerData = () => {
