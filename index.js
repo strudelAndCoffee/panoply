@@ -12,12 +12,10 @@ const promptManagerData = () => {
             name: "mgrName",
             message: "What is your team manager's name?",
             validate: input => {
-                if (input) {
-                    return true;
-                } else {
-                    console.log("Please enter a name");
-                    return false;
+                if (!input) {
+                    return "please enter a name...";
                 }
+                return true;
             }
         },
         {
@@ -26,11 +24,9 @@ const promptManagerData = () => {
             message: "What is your team manager's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
-                    console.log("Please enter a number");
-                    return false;
-                } else {
-                    return true;
+                    return "please enter a number...";
                 }
+                return true;
             }
         },
         {
@@ -41,8 +37,7 @@ const promptManagerData = () => {
                 if (input.includes("@") && input.includes(".")) {
                     return true;
                 } else {
-                    console.log("Please enter a valid email");
-                    return false;
+                    return "please enter a valid email address...";
                 }
             }
         },
@@ -52,11 +47,9 @@ const promptManagerData = () => {
             message: "What is your team manager's office number?",
             validate: input => {
                 if (isNaN(input) || !input) {
-                    console.log("Please enter a number");
-                    return false;
-                } else {
-                    return true;
+                    return "please enter a number..."
                 }
+                return true;
             }
         },
         {
