@@ -24,12 +24,10 @@ const addTeamMembers = data => {
             name: "name",
             message: "What is your engineer's name?",
             validate: input => {
-                if (input) {
-                    return true;
-                } else {
-                    console.log("Please enter a name");
-                    return false;
+                if (!input) {
+                    return "please enter a name...";
                 }
+                return true;
             },
             when: ({ role }) => {
                 if (role == "Engineer") {
@@ -44,12 +42,10 @@ const addTeamMembers = data => {
             name: "name",
             message: "What is your intern's name?",
             validate: input => {
-                if (input) {
-                    return true;
-                } else {
-                    console.log("Please enter a name");
-                    return false;
+                if (!input) {
+                    return "please enter a name...";
                 }
+                return true;
             },
             when: ({ role }) => {
                 if (role == "Intern") {
@@ -65,11 +61,9 @@ const addTeamMembers = data => {
             message: "What is your engineer's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
-                    console.log("Please enter a number");
-                    return false;
-                } else {
-                    return true;
+                    return "please enter a number...";
                 }
+                return true;
             },
             when: ({ role }) => {
                 if (role == "Engineer") {
@@ -85,11 +79,9 @@ const addTeamMembers = data => {
             message: "What is your intern's employee ID?",
             validate: input => {
                 if (isNaN(input) || !input) {
-                    console.log("Please enter a number");
-                    return false;
-                } else {
-                    return true;
+                    return "please enter a number...";
                 }
+                return true;
             },
             when: ({ role }) => {
                 if (role == "Intern") {
@@ -107,8 +99,7 @@ const addTeamMembers = data => {
                 if (input.includes("@") && input.includes(".")) {
                     return true;
                 } else {
-                    console.log("Please enter a valid email");
-                    return false;
+                    return "please enter a valid email address...";
                 }
             },
             when: ({ role }) => {
@@ -127,8 +118,7 @@ const addTeamMembers = data => {
                 if (input.includes("@") && input.includes(".")) {
                     return true;
                 } else {
-                    console.log("Please enter a valid email");
-                    return false;
+                    return "please enter a valid email address...";
                 }
             },
             when: ({ role }) => {
@@ -144,12 +134,10 @@ const addTeamMembers = data => {
             name: "github",
             message: "What is your engineer's GitHub username?",
             validate: input => {
-                if (input) {
-                    return true;
-                } else {
-                    console.log("Please enter a GitHub username");
-                    return false;
+                if (!input) {
+                    return "please enter a GitHub username";
                 }
+                return true;
             },
             when: ({ role }) => {
                 if (role == "Engineer") {
@@ -164,12 +152,10 @@ const addTeamMembers = data => {
             name: "school",
             message: "What is your intern's school?",
             validate: input => {
-                if (input) {
-                    return true;
-                } else {
-                    console.log("Please enter a school name");
-                    return false;
+                if (!input) {
+                    return "please enter a school name";
                 }
+                return true;
             },
             when: ({ role }) => {
                 if (role == "Intern") {
