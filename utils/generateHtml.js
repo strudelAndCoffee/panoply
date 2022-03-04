@@ -31,7 +31,7 @@ return `
     <h2 class="title is-2 has-text-link-dark">${name}</h2>
     <h3 class="title is-4"><span class="oi oi-${icon}"></span> ${role}</h3>
 </div>
-<div class="box columns is-shadowless">
+<div class="box columns is-shadowless is-flex is-flex-wrap-nowrap">
     <div class="column is-narrow is-flex is-flex-direction-column is-align-items-flex-end">
         <span class="tag is-info has-text-weight-semibold">ID</span>
         <br />
