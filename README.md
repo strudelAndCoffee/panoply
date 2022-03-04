@@ -5,7 +5,7 @@
 
 ## Description
 
-This application allows the user to log and display information on a development team to a webpage for easy viewing.
+This application allows the user to log and display their development team's basic information on a webpage for easy viewing. An HTML file and accompanying CSS stylesheet will be generated and ready for use after answering a short list of questions.
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@ Enter this command to run the apllication: `node index`
 
 You can watch a walkthrough demonstration video here: [Panoply Tutorial](https://drive.google.com/file/d/1fDaWpmIblp85tBhIc_GjFasayK5Msrqt/view?usp=sharing)
 
-After cloning the repository to your computer and installing dependencies, make sure that you're in the root directory of the repo...
+After cloning the repository to your computer and installing dependencies; make sure that you're in the root directory of the repo...
 
 ![Installing dependencies in Git Bash](https://github.com/strudelAndCoffee/panoply/blob/main/assets/images/demo-screencap-1.png)
 
