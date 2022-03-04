@@ -36,7 +36,7 @@ After cloning the repository to your computer and installing dependencies; make 
 
 Then enter the command to run the application: `node index`
 
-![Running initial command in Git Bash](https://github.com/strudelAndCoffee/panoply/blob/main/assets/images/demo-screencap-2.png)
+![Running initial command in Git Bash](https://github.com/strudelAndCoffee/panoply/blob/main/assets/images/demo-screencap-2edit.png)
 
 You will then fill out your team's basic info by answering a short list of questions for each team member. Once you have added all of the employees in your team, you may exit the program, and the HTML will be generated automatically.
 
