@@ -26,6 +26,12 @@ Enter this command to test the application: `npm test`
 
 ## Usage
 
+You can watch a walkthrough demonstration video here: [Panoply Tutorial](https://drive.google.com/file/d/1TMy76afdcd2XXwbZjp95AKVuM0wDPKr9/view?usp=sharing)
+
+After cloning the repo to your computer and installing dependencies...
+
+![Installing dependencies in Git Bash](https://github.com/strudelAndCoffee/easy-readme/blob/main/assets/images/demo-screencap-1.png)
+
 Enter this command to run the application: `node index`
 
 After cloning the repo and installing dependencies, enter 'node index' in the command line. You will then enter basic info on the team's manager, and will then be prompted to add additional team members, where you may either enter basic info for each employee, or quit the program. Upon quitting the program, an 'index.html' file will appear in the 'dist' folder with the information you provided coded into HTML to display as a webpage, along with the accompanying 'style.css' file.
