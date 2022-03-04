@@ -28,7 +28,7 @@ Enter this command to run the apllication: `node index`
 
 ## Usage
 
-You can watch a walkthrough demonstration video here: [Panoply Tutorial](https://drive.google.com/file/d/1fDaWpmIblp85tBhIc_GjFasayK5Msrqt/view?usp=sharing)
+You can watch a walkthrough demonstration video here: [Panoply Tutorial](https://drive.google.com/file/d/1OXlU-16j9atwGgHJs12yaHLMSNfyPs4J/view?usp=sharing)
 
 After cloning the repository to your computer and installing dependencies; make sure that you're in the root directory of the repo...
 
