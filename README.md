@@ -28,11 +28,11 @@ Enter this command to test the application: `npm test`
 
 You can watch a walkthrough demonstration video here: [Panoply Tutorial](https://drive.google.com/file/d/1fDaWpmIblp85tBhIc_GjFasayK5Msrqt/view?usp=sharing)
 
-After cloning the repo to your computer and installing dependencies...
+After cloning the repository to your computer and installing dependencies...
 
 ![Installing dependencies in Git Bash](https://github.com/strudelAndCoffee/panoply/blob/main/assets/images/demo-screencap-1.png)
 
-Make sure that you're in the root directory of the repository, and enter this command to run the application: `node index`
+Make sure you're in the root directory of the repo, and enter this command to run the application: `node index`
 
 ![Running initial command in Git Bash](https://github.com/strudelAndCoffee/panoply/blob/main/assets/images/demo-screencap-2.png)
 
